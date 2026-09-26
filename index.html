@@ -15,6 +15,35 @@
 
 <body>
   <div class="auth-wrapper">
+    <!-- Mobile Telemetry & Segmented Switcher (Visible on screens < 768px) -->
+    <div class="mobile-nav-header" id="mobileNavHeader">
+      <div class="mobile-telemetry-badge">
+        <span class="telemetry-beacon"></span>
+        <span class="telemetry-title">Nexon IoT Grid</span>
+        <span class="telemetry-sep">•</span>
+        <span class="telemetry-metric">99.98% Sync</span>
+      </div>
+      <div class="mobile-tabs-pill" role="tablist" aria-label="Authentication Options">
+        <button type="button" class="mobile-tab-btn active" id="tabSignInBtn" role="tab" aria-selected="true">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M15 3h4a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2h-4"></path>
+            <polyline points="10 17 15 12 10 7"></polyline>
+            <line x1="15" y1="12" x2="3" y2="12"></line>
+          </svg>
+          <span>Login</span>
+        </button>
+        <button type="button" class="mobile-tab-btn" id="tabSignUpBtn" role="tab" aria-selected="false">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M16 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+            <circle cx="8.5" cy="7" r="4"></circle>
+            <line x1="20" y1="8" x2="20" y2="14"></line>
+            <line x1="23" y1="11" x2="17" y2="11"></line>
+          </svg>
+          <span>Create Account</span>
+        </button>
+      </div>
+    </div>
+
     <!-- Main Card Container -->
     <div class="container" id="container">
 
@@ -479,6 +508,12 @@
             </button>
           </div>
 
+          <!-- Mobile Switch Prompt for Sign Up -->
+          <div class="form-switch-prompt mobile-only">
+            <span>Already have an account?</span>
+            <button type="button" class="switch-link-btn" id="linkToSignIn">Sign In</button>
+          </div>
+
         </form>
       </div>
 
@@ -583,6 +618,12 @@
               <polyline points="12 5 19 12 12 19"></polyline>
             </svg>
           </button>
+
+          <!-- Mobile Switch Prompt for Sign In -->
+          <div class="form-switch-prompt mobile-only">
+            <span>New to Nexon Power?</span>
+            <button type="button" class="switch-link-btn" id="linkToSignUp">Create Account</button>
+          </div>
         </form>
       </div>
 

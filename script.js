@@ -6,17 +6,47 @@ document.addEventListener('DOMContentLoaded', () => {
   const signUpForm = document.getElementById('signUpForm');
   const toast = document.getElementById('toast');
 
-  // Slide to Sign Up (Create Account / Account Setup)
-  signUpBtn.addEventListener('click', () => {
+  const tabSignInBtn = document.getElementById('tabSignInBtn');
+  const tabSignUpBtn = document.getElementById('tabSignUpBtn');
+  const linkToSignUp = document.getElementById('linkToSignUp');
+  const linkToSignIn = document.getElementById('linkToSignIn');
+
+  function updateMobileTabs(activePanel) {
+    if (!tabSignInBtn || !tabSignUpBtn) return;
+    if (activePanel === 'signUp') {
+      tabSignUpBtn.classList.add('active');
+      tabSignUpBtn.setAttribute('aria-selected', 'true');
+      tabSignInBtn.classList.remove('active');
+      tabSignInBtn.setAttribute('aria-selected', 'false');
+    } else {
+      tabSignInBtn.classList.add('active');
+      tabSignInBtn.setAttribute('aria-selected', 'true');
+      tabSignUpBtn.classList.remove('active');
+      tabSignUpBtn.setAttribute('aria-selected', 'false');
+    }
+  }
+
+  function switchToSignUp() {
     container.classList.add('right-panel-active');
+    updateMobileTabs('signUp');
     drawCaptcha('signUp');
-  });
+  }
+
+  function switchToSignIn() {
+    container.classList.remove('right-panel-active');
+    updateMobileTabs('signIn');
+    drawCaptcha('signIn');
+  }
+
+  // Slide to Sign Up (Create Account / Account Setup)
+  if (signUpBtn) signUpBtn.addEventListener('click', switchToSignUp);
+  if (tabSignUpBtn) tabSignUpBtn.addEventListener('click', switchToSignUp);
+  if (linkToSignUp) linkToSignUp.addEventListener('click', switchToSignUp);
 
   // Slide to Sign In (Login)
-  signInBtn.addEventListener('click', () => {
-    container.classList.remove('right-panel-active');
-    drawCaptcha('signIn');
-  });
+  if (signInBtn) signInBtn.addEventListener('click', switchToSignIn);
+  if (tabSignInBtn) tabSignInBtn.addEventListener('click', switchToSignIn);
+  if (linkToSignIn) linkToSignIn.addEventListener('click', switchToSignIn);
 
   // Toggle Password Visibility
   const toggleButtons = document.querySelectorAll('.toggle-password');
@@ -964,8 +994,7 @@ document.addEventListener('DOMContentLoaded', () => {
       signUpForm.reset();
       currentStep = 1;
       updateWizardView();
-      container.classList.remove('right-panel-active');
-      drawCaptcha('signIn');
+      switchToSignIn();
     }, 2000);
   });
 });

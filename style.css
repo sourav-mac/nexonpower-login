@@ -24,14 +24,15 @@
   --transition-curve: cubic-bezier(0.77, 0, 0.175, 1);
 }
 
-html,
-body {
+html {
   height: 100%;
   width: 100%;
-  overflow: hidden;
+  -webkit-text-size-adjust: 100%;
 }
 
 body {
+  min-height: 100%;
+  width: 100%;
   font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
   background-color: #FAF9F6;
   display: flex;
@@ -39,7 +40,9 @@ body {
   align-items: center;
   position: relative;
   color: var(--text-main);
-  padding: 16px;
+  padding: 20px 16px;
+  overflow-x: hidden;
+  overflow-y: auto;
 }
 
 /* Auth Wrapper */
@@ -50,6 +53,7 @@ body {
   justify-content: center;
   width: 100%;
   max-width: 860px;
+  margin: auto;
   z-index: 10;
 }
 
@@ -1192,4 +1196,558 @@ input:focus {
 
 .toast.info {
   border-left-color: #4169E1;
+}
+
+/* ==========================================================================
+   Responsive & Adaptive Mobile/Tablet Architecture
+   ========================================================================== */
+
+/* Mobile Nav & Telemetry Badge (Visible only on screens < 768px) */
+.mobile-nav-header {
+  display: none;
+  width: 100%;
+  max-width: 480px;
+  margin-bottom: 14px;
+  flex-direction: column;
+  gap: 10px;
+  align-items: center;
+  animation: fadeInStep 0.3s ease;
+}
+
+.mobile-telemetry-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  background: rgba(255, 255, 255, 0.95);
+  border: 1px solid rgba(226, 232, 240, 0.9);
+  padding: 5px 14px;
+  border-radius: 9999px;
+  font-size: 11px;
+  font-weight: 600;
+  color: #475569;
+  box-shadow: 0 2px 8px rgba(15, 23, 42, 0.04);
+}
+
+.telemetry-beacon {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background-color: #10b981;
+  box-shadow: 0 0 8px #10b981;
+  animation: pulseBeacon 2s infinite ease-in-out;
+}
+
+@keyframes pulseBeacon {
+  0%, 100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.35;
+    transform: scale(0.8);
+  }
+}
+
+.telemetry-title {
+  font-weight: 700;
+  color: #1e293b;
+}
+
+.telemetry-sep {
+  color: #94a3b8;
+}
+
+.telemetry-metric {
+  color: #0284c7;
+  font-weight: 700;
+}
+
+.mobile-tabs-pill {
+  display: flex;
+  width: 100%;
+  background: #f1f5f9;
+  padding: 4px;
+  border-radius: 14px;
+  border: 1px solid #e2e8f0;
+  gap: 4px;
+  box-shadow: inset 0 1px 2px rgba(15, 23, 42, 0.04);
+}
+
+.mobile-tab-btn {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 7px;
+  padding: 9px 14px;
+  border-radius: 10px;
+  border: none;
+  background: transparent;
+  color: #64748b;
+  font-family: inherit;
+  font-size: 13px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+  -webkit-tap-highlight-color: transparent;
+}
+
+.mobile-tab-btn.active {
+  background: #4169E1;
+  color: #ffffff;
+  box-shadow: 0 4px 12px rgba(65, 105, 225, 0.28);
+}
+
+.mobile-tab-btn:not(.active):hover {
+  color: #1e293b;
+  background: rgba(255, 255, 255, 0.6);
+}
+
+/* Mobile Inline Switch Prompt */
+.form-switch-prompt {
+  display: none;
+}
+
+.form-switch-prompt.mobile-only {
+  display: none;
+}
+
+/* ==========================================================================
+   Tablet Screen Optimizations (768px to 991px)
+   ========================================================================== */
+@media (min-width: 768px) and (max-width: 991px) {
+  .auth-wrapper {
+    max-width: 730px;
+  }
+
+  .container {
+    height: 535px;
+  }
+
+  form {
+    padding: 20px 22px;
+  }
+
+  .wizard-form {
+    padding: 16px 20px !important;
+  }
+
+  .form-title {
+    font-size: 1.4rem;
+  }
+
+  .form-subtitle {
+    font-size: 10.5px;
+  }
+
+  .step-progress-wrapper {
+    margin: 6px 0;
+  }
+
+  .step-circle {
+    width: 22px;
+    height: 22px;
+    font-size: 10px;
+  }
+
+  .step-label {
+    font-size: 8.5px;
+  }
+
+  .step-connector {
+    margin: 0 3px 12px 3px;
+  }
+
+  .input-grid-2 {
+    gap: 6px;
+  }
+
+  .scrollable-step-form {
+    max-height: 235px;
+    padding-right: 10px;
+  }
+
+  .duration-pill {
+    padding: 6px 3px;
+    font-size: 10.5px;
+  }
+
+  .overlay-panel {
+    padding: 24px 18px;
+  }
+
+  .overlay-title {
+    font-size: 1.6rem;
+  }
+
+  .overlay-desc {
+    font-size: 12px;
+    max-width: 210px;
+    line-height: 18px;
+  }
+
+  .overlay-metrics-pill {
+    max-width: 220px;
+    padding: 8px 14px;
+  }
+}
+
+/* ==========================================================================
+   Mobile Screen Architecture (< 768px)
+   Transforms from desktop horizontal split to stacked native mobile experience
+   ========================================================================== */
+@media (max-width: 767px) {
+  body {
+    padding: 14px 12px 28px 12px;
+    align-items: flex-start;
+    justify-content: center;
+  }
+
+  .auth-wrapper {
+    max-width: 480px;
+    width: 100%;
+    margin: 0 auto;
+  }
+
+  /* Show Mobile Header & Switchers */
+  .mobile-nav-header {
+    display: flex;
+  }
+
+  .form-switch-prompt.mobile-only {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+    margin-top: 14px;
+    font-size: 12.5px;
+    color: var(--text-muted);
+  }
+
+  .switch-link-btn {
+    background: none;
+    border: none;
+    color: #4169E1;
+    font-family: inherit;
+    font-size: 12.5px;
+    font-weight: 700;
+    cursor: pointer;
+    text-decoration: underline;
+    padding: 2px 4px;
+    transition: color 0.2s ease;
+  }
+
+  .switch-link-btn:hover {
+    color: #2b50c7;
+  }
+
+  /* Main Container Card becomes full width & auto height */
+  .container {
+    width: 100%;
+    max-width: 100%;
+    height: auto;
+    min-height: unset;
+    position: relative;
+    overflow: visible;
+    border-radius: 20px;
+    border: 1px solid rgba(226, 232, 240, 0.95);
+    box-shadow:
+      0 12px 35px -8px rgba(14, 165, 233, 0.14),
+      0 4px 14px -2px rgba(15, 23, 42, 0.05);
+  }
+
+  /* Hide Desktop Overlay Scrim on Mobile */
+  .overlay-container {
+    display: none !important;
+  }
+
+  /* Form Containers take full width and stack cleanly */
+  .form-container {
+    position: static;
+    width: 100% !important;
+    height: auto !important;
+    transform: none !important;
+    transition: none;
+  }
+
+  /* When Login is active */
+  .sign-in-container {
+    display: block;
+    width: 100% !important;
+    opacity: 1 !important;
+    pointer-events: all !important;
+    transform: none !important;
+  }
+
+  .container.right-panel-active .sign-in-container {
+    display: none !important;
+    pointer-events: none !important;
+  }
+
+  /* When Register/Account Setup is active */
+  .sign-up-container {
+    display: none !important;
+    width: 100% !important;
+    transform: none !important;
+    opacity: 0;
+    pointer-events: none;
+  }
+
+  .container.right-panel-active .sign-up-container {
+    display: block !important;
+    opacity: 1 !important;
+    pointer-events: all !important;
+    transform: none !important;
+    animation: fadeInMobile 0.28s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  @keyframes fadeInMobile {
+    from {
+      opacity: 0;
+      transform: translateY(8px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  form {
+    padding: 22px 18px;
+    width: 100%;
+    height: auto;
+    min-height: unset;
+    gap: 12px;
+  }
+
+  .wizard-form {
+    padding: 20px 16px !important;
+    gap: 8px;
+  }
+
+  .form-top-header {
+    margin-bottom: 2px;
+  }
+
+  .brand-header {
+    margin-bottom: 4px;
+  }
+
+  .form-title {
+    font-size: 1.35rem;
+    letter-spacing: -0.4px;
+  }
+
+  .form-subtitle {
+    font-size: 11.5px;
+  }
+
+  /* 5-Step Progress Bar Responsive Layout */
+  .step-progress-wrapper {
+    width: 100%;
+    margin: 10px 0 14px 0;
+    padding: 0 2px;
+  }
+
+  .step-circle {
+    width: 24px;
+    height: 24px;
+    font-size: 10.5px;
+  }
+
+  .step-label {
+    font-size: 8.5px;
+    text-align: center;
+  }
+
+  .step-connector {
+    margin: 0 2px 13px 2px;
+    height: 2px;
+  }
+
+  .step-content-area {
+    min-height: unset;
+    width: 100%;
+  }
+
+  .step-panel {
+    gap: 9px;
+  }
+
+  /* 2-Column Inputs stack on mobile screens for tap accessibility */
+  .input-grid-2 {
+    grid-template-columns: 1fr;
+    gap: 9px;
+    width: 100%;
+  }
+
+  /* Scrollable container inside Steps 3, 4, 5 */
+  .scrollable-step-form {
+    max-height: 290px;
+    padding-right: 6px;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .account-type-grid {
+    gap: 8px;
+  }
+
+  .account-card {
+    padding: 11px 12px;
+    border-radius: 12px;
+  }
+
+  .account-card .card-body {
+    gap: 10px;
+  }
+
+  .card-icon-box {
+    width: 34px;
+    height: 34px;
+  }
+
+  .account-card .card-info strong {
+    font-size: 12px;
+  }
+
+  .account-card .card-info small {
+    font-size: 10.5px;
+    line-height: 13px;
+  }
+
+  /* Step 4 Steppers & Duration Pills on Mobile */
+  .number-stepper {
+    height: 38px;
+  }
+
+  .stepper-btn {
+    width: 42px;
+  }
+
+  .duration-pills-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 6px;
+  }
+
+  .duration-pill {
+    padding: 8px 6px;
+    font-size: 12px;
+  }
+
+  /* CAPTCHA section on Mobile */
+  .captcha-wrapper {
+    padding: 8px 10px;
+    gap: 6px;
+  }
+
+  .captcha-box {
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+
+  .captcha-canvas {
+    width: 120px;
+    height: 36px;
+  }
+
+  .captcha-input-field {
+    flex: 1;
+    min-width: 120px;
+  }
+
+  /* Form Options (Remember Me & Forgot Pass) */
+  .form-options {
+    flex-wrap: wrap;
+    gap: 8px;
+    font-size: 12px;
+    margin-top: 2px;
+    margin-bottom: 2px;
+  }
+
+  .wizard-nav-row {
+    margin-top: 14px;
+    gap: 10px;
+  }
+
+  .btn {
+    padding: 12px 20px;
+    font-size: 13px;
+    border-radius: 12px;
+  }
+
+  .btn-submit {
+    margin-top: 2px;
+  }
+
+  /* Toast Notification positioning on mobile */
+  .toast {
+    left: 12px;
+    right: 12px;
+    bottom: 12px;
+    width: auto;
+    max-width: calc(100% - 24px);
+    border-radius: 12px;
+    font-size: 12px;
+  }
+}
+
+/* ==========================================================================
+   Small Mobile Screens (< 400px, e.g. iPhone SE / 360px Android)
+   ========================================================================== */
+@media (max-width: 400px) {
+  body {
+    padding: 10px 8px 24px 8px;
+  }
+
+  .form-title {
+    font-size: 1.22rem;
+  }
+
+  form {
+    padding: 18px 14px;
+  }
+
+  .wizard-form {
+    padding: 16px 12px !important;
+  }
+
+  .step-circle {
+    width: 22px;
+    height: 22px;
+    font-size: 9.5px;
+  }
+
+  .step-label {
+    font-size: 7.8px;
+  }
+
+  .step-connector {
+    margin: 0 1px 11px 1px;
+  }
+
+  .mobile-tab-btn {
+    padding: 8px 10px;
+    font-size: 12px;
+  }
+
+  .btn {
+    padding: 11px 16px;
+    font-size: 12.5px;
+  }
+}
+
+/* ==========================================================================
+   Short Viewport Height (< 600px, e.g. Mobile Landscape)
+   ========================================================================== */
+@media (max-height: 600px) {
+  body {
+    align-items: flex-start;
+    padding-top: 12px;
+    padding-bottom: 12px;
+  }
+
+  .container {
+    margin-top: 4px;
+    margin-bottom: 4px;
+  }
 }
