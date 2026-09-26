@@ -1,0 +1,627 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Nexon Power</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link
+    href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+  <div class="auth-wrapper">
+    <!-- Main Card Container -->
+    <div class="container" id="container">
+
+      <!-- Multi-step Sign Up Form (Account Setup) -->
+      <div class="form-container sign-up-container">
+        <form id="signUpForm" class="wizard-form" autocomplete="off">
+
+          <div class="form-top-header">
+            <div class="brand-header">
+              <div class="brand-logo">
+                <svg viewBox="0 0 40 40" class="logo-icon">
+                  <defs>
+                    <linearGradient id="nexonGrad1" x1="0%" y1="0%" x2="100%" y2="100%">
+                      <stop offset="0%" stop-color="#00f2fe" />
+                      <stop offset="50%" stop-color="#4facfe" />
+                      <stop offset="100%" stop-color="#6f42c1" />
+                    </linearGradient>
+                  </defs>
+                  <path d="M12 28 C 8 22, 10 12, 20 8 C 26 5, 33 8, 35 15 C 37 22, 32 30, 24 33 C 18 35, 13 32, 12 28 Z"
+                    fill="none" stroke="url(#nexonGrad1)" stroke-width="3" stroke-linecap="round"
+                    stroke-dasharray="70 20" />
+                  <path d="M22 6 L14 20 L21 20 L18 34 L28 18 L21 18 Z" fill="url(#nexonGrad1)" />
+                </svg>
+              </div>
+              <span class="brand-name">Nexon <span class="brand-highlight">Power</span></span>
+            </div>
+
+            <h1 class="form-title">Account Setup</h1>
+            <p class="form-subtitle">Complete all steps to activate</p>
+          </div>
+
+          <!-- 5-Step Progress Bar -->
+          <div class="step-progress-wrapper">
+            <div class="step-item active" data-step="1">
+              <div class="step-circle">1</div>
+              <span class="step-label">Account Type</span>
+            </div>
+            <div class="step-connector"></div>
+            <div class="step-item" data-step="2">
+              <div class="step-circle">2</div>
+              <span class="step-label">Personal</span>
+            </div>
+            <div class="step-connector"></div>
+            <div class="step-item" data-step="3">
+              <div class="step-circle">3</div>
+              <span class="step-label">Organization</span>
+            </div>
+            <div class="step-connector"></div>
+            <div class="step-item" data-step="4">
+              <div class="step-circle">4</div>
+              <span class="step-label">Subscription</span>
+            </div>
+            <div class="step-connector"></div>
+            <div class="step-item" data-step="5">
+              <div class="step-circle">5</div>
+              <span class="step-label">Payment</span>
+            </div>
+          </div>
+
+          <!-- Step Content Container -->
+          <div class="step-content-area">
+
+            <!-- STEP 1: Account Type -->
+            <div class="step-panel active" id="stepPanel1">
+              <div class="panel-header-row">
+                <span class="panel-subhead">Choose Account Type</span>
+              </div>
+              <p class="panel-desc">Select the type of account you'd like to create</p>
+              <div class="account-type-grid">
+                <label class="account-card selected">
+                  <input type="radio" name="accountType" value="personal" checked />
+                  <div class="card-body">
+                    <div class="card-icon-box">
+                      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                        stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+                        <circle cx="12" cy="7" r="4"></circle>
+                      </svg>
+                    </div>
+                    <div class="card-info">
+                      <strong>Personal</strong>
+                      <small>For individual energy monitoring and management</small>
+                    </div>
+                  </div>
+                </label>
+                <label class="account-card">
+                  <input type="radio" name="accountType" value="corporate" />
+                  <div class="card-body">
+                    <div class="card-icon-box">
+                      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                        stroke-linecap="round" stroke-linejoin="round">
+                        <rect x="4" y="2" width="16" height="20" rx="2" ry="2"></rect>
+                        <path d="M9 22v-4h6v4"></path>
+                        <path d="M8 6h.01"></path>
+                        <path d="M16 6h.01"></path>
+                        <path d="M8 10h.01"></path>
+                        <path d="M16 10h.01"></path>
+                        <path d="M8 14h.01"></path>
+                        <path d="M16 14h.01"></path>
+                      </svg>
+                    </div>
+                    <div class="card-info">
+                      <strong>Corporate</strong>
+                      <small>For businesses and organizations with multiple facilities</small>
+                    </div>
+                  </div>
+                </label>
+              </div>
+            </div>
+
+            <!-- STEP 2: Personal Details -->
+            <div class="step-panel" id="stepPanel2">
+              <div class="panel-header-row">
+                <span class="panel-subhead">Personal Contact Details</span>
+              </div>
+              <div class="input-grid-2">
+                <div class="input-field">
+                  <input type="text" id="stepFirstName" placeholder="First Name" required />
+                </div>
+                <div class="input-field">
+                  <input type="text" id="stepLastName" placeholder="Last Name" required />
+                </div>
+              </div>
+              <div class="input-grid-2">
+                <div class="input-field">
+                  <input type="email" id="stepEmail" placeholder="Email Address" required />
+                </div>
+                <div class="input-field">
+                  <input type="tel" id="stepPhone" placeholder="Mobile Number (10-digit)" maxlength="10" required />
+                </div>
+              </div>
+              <div class="input-grid-2">
+                <div class="input-field password-field">
+                  <input type="password" id="stepPassword" placeholder="Password" required />
+                  <button type="button" class="toggle-password" aria-label="Toggle password visibility">
+                    <svg class="eye-open" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                      stroke-width="2">
+                      <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path>
+                      <circle cx="12" cy="12" r="3"></circle>
+                    </svg>
+                    <svg class="eye-closed hidden" width="16" height="16" viewBox="0 0 24 24" fill="none"
+                      stroke="currentColor" stroke-width="2">
+                      <path
+                        d="M17.94 17.94A10.07 10.07 0 0 1 12 20c-7 0-11-8-11-8a18.45 18.45 0 0 1 5.06-5.94M9.9 4.24A9.12 9.12 0 0 1 12 4c7 0 11 8 11 8a18.5 18.5 0 0 1-2.16 3.19m-6.72-1.07a3 3 0 1 1-4.24-4.24">
+                      </path>
+                      <line x1="1" y1="1" x2="23" y2="23"></line>
+                    </svg>
+                  </button>
+                </div>
+                <div class="input-field password-field">
+                  <input type="password" id="stepConfirmPassword" placeholder="Confirm Password" required />
+                  <button type="button" class="toggle-password" aria-label="Toggle password visibility">
+                    <svg class="eye-open" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                      stroke-width="2">
+                      <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path>
+                      <circle cx="12" cy="12" r="3"></circle>
+                    </svg>
+                    <svg class="eye-closed hidden" width="16" height="16" viewBox="0 0 24 24" fill="none"
+                      stroke="currentColor" stroke-width="2">
+                      <path
+                        d="M17.94 17.94A10.07 10.07 0 0 1 12 20c-7 0-11-8-11-8a18.45 18.45 0 0 1 5.06-5.94M9.9 4.24A9.12 9.12 0 0 1 12 4c7 0 11 8 11 8a18.5 18.5 0 0 1-2.16 3.19m-6.72-1.07a3 3 0 1 1-4.24-4.24">
+                      </path>
+                      <line x1="1" y1="1" x2="23" y2="23"></line>
+                    </svg>
+                  </button>
+                </div>
+              </div>
+            </div>
+
+            <!-- STEP 3: Organization -->
+            <div class="step-panel" id="stepPanel3">
+              <div class="panel-header-row">
+                <span class="panel-subhead">Organization Information</span>
+              </div>
+              <div class="scrollable-step-form">
+                <div class="input-grid-2">
+                  <div class="input-field">
+                    <input type="text" id="orgName" placeholder="Organization Name" required />
+                  </div>
+                  <div class="input-field">
+                    <select id="orgType" class="styled-select" required>
+                      <option value="" disabled selected hidden>Select Organization Type</option>
+                      <option value="private_limited">Private Limited</option>
+                      <option value="public_limited">Public Limited</option>
+                      <option value="llp">LLP</option>
+                      <option value="partnership">Partnership</option>
+                      <option value="proprietorship">Proprietorship</option>
+                      <option value="ngo">NGO</option>
+                      <option value="trust">Trust</option>
+                      <option value="other">Other</option>
+                    </select>
+                  </div>
+                </div>
+
+                <div class="input-grid-2">
+                  <div class="input-field">
+                    <input type="text" id="orgGst" placeholder="GST Number" />
+                  </div>
+                  <div class="input-field">
+                    <input type="text" id="orgPan" placeholder="PAN Number (10-digit)" maxlength="10" />
+                  </div>
+                </div>
+
+                <!-- Billing Address Section -->
+                <div class="section-divider-title">
+                  <span>Billing Address</span>
+                </div>
+                <div class="input-grid-2">
+                  <div class="input-field">
+                    <input type="text" id="billingStreet1" placeholder="Street Address 1" />
+                  </div>
+                  <div class="input-field">
+                    <input type="text" id="billingStreet2" placeholder="Street Address 2" />
+                  </div>
+                </div>
+                <div class="input-grid-2">
+                  <div class="input-field">
+                    <input type="text" id="billingCity" placeholder="City" />
+                  </div>
+                  <div class="input-field">
+                    <input type="text" id="billingDistrict" placeholder="District" />
+                  </div>
+                </div>
+                <div class="input-grid-2">
+                  <div class="input-field">
+                    <input type="text" id="billingState" list="indianStatesList" placeholder="State / UT" />
+                  </div>
+                  <div class="input-field">
+                    <input type="text" id="billingCountry" placeholder="Country" value="India" />
+                  </div>
+                </div>
+                <div class="input-grid-2">
+                  <div class="input-field">
+                    <input type="text" id="billingPincode" placeholder="Pincode (6-digit)" maxlength="6" />
+                  </div>
+                  <div class="input-field">
+                    <input type="text" id="billingLandmark" placeholder="Landmark" />
+                  </div>
+                </div>
+
+                <!-- Shipping Address Section -->
+                <div class="section-divider-title">
+                  <span>Shipping Address</span>
+                  <span class="copy-billing-toggle" id="copyBillingBtn">Copy from Billing</span>
+                </div>
+                <div class="input-grid-2">
+                  <div class="input-field">
+                    <input type="text" id="shippingStreet1" placeholder="Street Address 1" />
+                  </div>
+                  <div class="input-field">
+                    <input type="text" id="shippingStreet2" placeholder="Street Address 2" />
+                  </div>
+                </div>
+                <div class="input-grid-2">
+                  <div class="input-field">
+                    <input type="text" id="shippingCity" placeholder="City" />
+                  </div>
+                  <div class="input-field">
+                    <input type="text" id="shippingDistrict" placeholder="District" />
+                  </div>
+                </div>
+                <div class="input-grid-2">
+                  <div class="input-field">
+                    <input type="text" id="shippingState" list="indianStatesList" placeholder="State / UT" />
+                  </div>
+                  <div class="input-field">
+                    <input type="text" id="shippingCountry" placeholder="Country" value="India" />
+                  </div>
+                </div>
+                <div class="input-grid-2">
+                  <div class="input-field">
+                    <input type="text" id="shippingPincode" placeholder="Pincode (6-digit)" maxlength="6" />
+                  </div>
+                  <div class="input-field">
+                    <input type="text" id="shippingLandmark" placeholder="Landmark" />
+                  </div>
+                </div>
+
+                <!-- Datalist for all Indian States and Union Territories -->
+                <datalist id="indianStatesList">
+                  <option value="Andhra Pradesh"></option>
+                  <option value="Arunachal Pradesh"></option>
+                  <option value="Assam"></option>
+                  <option value="Bihar"></option>
+                  <option value="Chhattisgarh"></option>
+                  <option value="Goa"></option>
+                  <option value="Gujarat"></option>
+                  <option value="Haryana"></option>
+                  <option value="Himachal Pradesh"></option>
+                  <option value="Jharkhand"></option>
+                  <option value="Karnataka"></option>
+                  <option value="Kerala"></option>
+                  <option value="Madhya Pradesh"></option>
+                  <option value="Maharashtra"></option>
+                  <option value="Manipur"></option>
+                  <option value="Meghalaya"></option>
+                  <option value="Mizoram"></option>
+                  <option value="Nagaland"></option>
+                  <option value="Odisha"></option>
+                  <option value="Punjab"></option>
+                  <option value="Rajasthan"></option>
+                  <option value="Sikkim"></option>
+                  <option value="Tamil Nadu"></option>
+                  <option value="Telangana"></option>
+                  <option value="Tripura"></option>
+                  <option value="Uttar Pradesh"></option>
+                  <option value="Uttarakhand"></option>
+                  <option value="West Bengal"></option>
+                  <option value="Andaman and Nicobar Islands"></option>
+                  <option value="Chandigarh"></option>
+                  <option value="Dadra and Nagar Haveli and Daman and Diu"></option>
+                  <option value="Delhi"></option>
+                  <option value="Jammu and Kashmir"></option>
+                  <option value="Ladakh"></option>
+                  <option value="Lakshadweep"></option>
+                  <option value="Puducherry"></option>
+                </datalist>
+              </div>
+            </div>
+
+            <!-- STEP 4: Subscription -->
+            <div class="step-panel" id="stepPanel4">
+              <div class="panel-header-row">
+                <span class="panel-subhead">Configure Your Subscription</span>
+              </div>
+              <p class="panel-desc">Customize your energy management system based on your requirements</p>
+
+              <div class="scrollable-step-form">
+                <!-- Meters & Gateways Row -->
+                <div class="input-grid-2">
+                  <div class="sub-field-group">
+                    <label class="sub-label" for="subNumMeters">Number of Meters</label>
+                    <div class="number-stepper">
+                      <button type="button" class="stepper-btn btn-step-dec" data-target="subNumMeters" aria-label="Decrease meters">
+                        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><line x1="5" y1="12" x2="19" y2="12"></line></svg>
+                      </button>
+                      <input type="number" id="subNumMeters" class="stepper-input" min="1" value="1" />
+                      <button type="button" class="stepper-btn btn-step-inc" data-target="subNumMeters" aria-label="Increase meters">
+                        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg>
+                      </button>
+                    </div>
+                    <span class="sub-hint">You can add more later.</span>
+                  </div>
+                  <div class="sub-field-group">
+                    <label class="sub-label" for="subNumGateways">Number of Gateways</label>
+                    <div class="number-stepper">
+                      <button type="button" class="stepper-btn btn-step-dec" data-target="subNumGateways" aria-label="Decrease gateways">
+                        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><line x1="5" y1="12" x2="19" y2="12"></line></svg>
+                      </button>
+                      <input type="number" id="subNumGateways" class="stepper-input" min="1" value="1" />
+                      <button type="button" class="stepper-btn btn-step-inc" data-target="subNumGateways" aria-label="Increase gateways">
+                        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg>
+                      </button>
+                    </div>
+                    <span class="sub-hint">Communication gateways to connect meters.</span>
+                  </div>
+                </div>
+
+                <!-- Users & Frequency Row -->
+                <div class="input-grid-2">
+                  <div class="sub-field-group">
+                    <label class="sub-label" for="subNumUsers">Number of Users</label>
+                    <div class="number-stepper">
+                      <button type="button" class="stepper-btn btn-step-dec" data-target="subNumUsers" aria-label="Decrease users">
+                        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><line x1="5" y1="12" x2="19" y2="12"></line></svg>
+                      </button>
+                      <input type="number" id="subNumUsers" class="stepper-input" min="1" value="1" />
+                      <button type="button" class="stepper-btn btn-step-inc" data-target="subNumUsers" aria-label="Increase users">
+                        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg>
+                      </button>
+                    </div>
+                    <span class="sub-hint">Team members who can access the system.</span>
+                  </div>
+                  <div class="sub-field-group">
+                    <label class="sub-label" for="subFreq">Data Collection Frequency</label>
+                    <div class="input-field">
+                      <select id="subFreq" class="styled-select">
+                        <option value="15min" selected>15 minutes</option>
+                        <option value="1min">1 minute</option>
+                        <option value="5min">5 minutes</option>
+                        <option value="30min">30 minutes</option>
+                        <option value="60min">1 hour</option>
+                      </select>
+                    </div>
+                    <span class="sub-hint">How often data should be collected from meters</span>
+                  </div>
+                </div>
+
+                <!-- Subscription Duration Row -->
+                <div class="sub-duration-section">
+                  <label class="sub-label">Subscription Duration</label>
+                  <span class="sub-hint" style="margin-bottom: 5px;">Select subscription period in years</span>
+                  <div class="duration-pills-grid">
+                    <label class="duration-pill selected">
+                      <input type="radio" name="subDuration" value="1yr" checked />
+                      <span>1 Year</span>
+                    </label>
+                    <label class="duration-pill">
+                      <input type="radio" name="subDuration" value="2yr" />
+                      <span>2 Years</span>
+                    </label>
+                    <label class="duration-pill">
+                      <input type="radio" name="subDuration" value="3yr" />
+                      <span>3 Years</span>
+                    </label>
+                    <label class="duration-pill">
+                      <input type="radio" name="subDuration" value="5yr" />
+                      <span>5 Years</span>
+                    </label>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- STEP 5: Payment Method & PO Submission -->
+            <div class="step-panel" id="stepPanel5">
+              <div class="panel-header-row">
+                <span class="panel-subhead">Payment Method</span>
+              </div>
+              <p class="panel-desc">Submit your Purchase Order details for manual verification</p>
+
+              <div class="scrollable-step-form">
+                <!-- PO Fields Grid -->
+                <div class="input-grid-2">
+                  <div class="input-field">
+                    <input type="text" id="poNumber" placeholder="Purchase Order (PO) Number *" required />
+                  </div>
+                  <div class="input-field">
+                    <input type="text" id="poCompanyName" placeholder="Company Name *" required />
+                  </div>
+                </div>
+
+                <div class="input-field">
+                  <input type="text" id="poRemarks" placeholder="Additional Remarks (Optional)" />
+                </div>
+
+                <!-- What happens next -->
+                <div class="po-next-steps-card">
+                  <span class="next-steps-title">What happens next?</span>
+                  <ul class="next-steps-list">
+                    <li>Our finance team will verify your PO details</li>
+                    <li>You'll receive email updates on the verification status</li>
+                    <li>Account will be activated once PO is verified</li>
+                    <li>Estimated time: 24-48 business hours</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+
+          </div>
+
+          <!-- Wizard Navigation Buttons -->
+          <div class="wizard-nav-row" id="wizardNavRow">
+            <button type="button" class="btn btn-secondary hidden" id="btnStepPrev">
+              BACK
+            </button>
+            <button type="button" class="btn btn-primary" id="btnStepNext">
+              CONTINUE
+            </button>
+            <button type="submit" class="btn btn-primary hidden" id="btnStepSubmit">
+              SUBMIT
+            </button>
+          </div>
+
+        </form>
+      </div>
+
+      <!-- Sign In Form (Login) -->
+      <div class="form-container sign-in-container">
+        <form id="signInForm" autocomplete="off">
+          <div class="brand-header">
+            <div class="brand-logo">
+              <svg viewBox="0 0 40 40" class="logo-icon">
+                <defs>
+                  <linearGradient id="nexonGrad2" x1="0%" y1="0%" x2="100%" y2="100%">
+                    <stop offset="0%" stop-color="#00f2fe" />
+                    <stop offset="50%" stop-color="#4facfe" />
+                    <stop offset="100%" stop-color="#6f42c1" />
+                  </linearGradient>
+                </defs>
+                <path d="M12 28 C 8 22, 10 12, 20 8 C 26 5, 33 8, 35 15 C 37 22, 32 30, 24 33 C 18 35, 13 32, 12 28 Z"
+                  fill="none" stroke="url(#nexonGrad2)" stroke-width="3" stroke-linecap="round"
+                  stroke-dasharray="70 20" />
+                <path d="M22 6 L14 20 L21 20 L18 34 L28 18 L21 18 Z" fill="url(#nexonGrad2)" />
+              </svg>
+            </div>
+            <span class="brand-name">Nexon <span class="brand-highlight">Power</span></span>
+          </div>
+
+          <h1 class="form-title">Login</h1>
+          <p class="form-subtitle">Enter your credentials to access your Nexon Power account</p>
+
+          <!-- Identifier: Email or Phone -->
+          <div class="input-group">
+            <div class="input-field">
+              <span class="input-icon">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+                  <circle cx="12" cy="7" r="4"></circle>
+                </svg>
+              </span>
+              <input type="text" id="signInIdentifier" placeholder="Email or Phone" required />
+            </div>
+          </div>
+
+          <!-- Password -->
+          <div class="input-group">
+            <div class="input-field password-field">
+              <span class="input-icon">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect>
+                  <path d="M7 11V7a5 5 0 0 1 10 0v4"></path>
+                </svg>
+              </span>
+              <input type="password" id="signInPassword" placeholder="Password" required />
+              <button type="button" class="toggle-password" aria-label="Toggle password visibility">
+                <svg class="eye-open" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                  stroke-width="2">
+                  <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path>
+                  <circle cx="12" cy="12" r="3"></circle>
+                </svg>
+                <svg class="eye-closed hidden" width="16" height="16" viewBox="0 0 24 24" fill="none"
+                  stroke="currentColor" stroke-width="2">
+                  <path
+                    d="M17.94 17.94A10.07 10.07 0 0 1 12 20c-7 0-11-8-11-8a18.45 18.45 0 0 1 5.06-5.94M9.9 4.24A9.12 9.12 0 0 1 12 4c7 0 11 8 11 8a18.5 18.5 0 0 1-2.16 3.19m-6.72-1.07a3 3 0 1 1-4.24-4.24">
+                  </path>
+                  <line x1="1" y1="1" x2="23" y2="23"></line>
+                </svg>
+              </button>
+            </div>
+          </div>
+
+          <!-- CAPTCHA Verification -->
+          <div class="captcha-wrapper">
+            <div class="captcha-badge-row">
+              <span class="captcha-label">CAPTCHA Verification</span>
+              <button type="button" class="btn-refresh-captcha" id="refreshSignInCaptcha" title="Refresh CAPTCHA">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                  <path d="M23 4v6h-6"></path>
+                  <path d="M20.49 15a9 9 0 1 1-2.12-9.36L23 10"></path>
+                </svg>
+              </button>
+            </div>
+            <div class="captcha-box">
+              <canvas id="signInCaptchaCanvas" width="120" height="36" class="captcha-canvas"></canvas>
+              <div class="input-field captcha-input-field">
+                <input type="text" id="signInCaptchaInput" placeholder="Enter CAPTCHA" maxlength="6" required />
+              </div>
+            </div>
+          </div>
+
+          <div class="form-options">
+            <label class="remember-me">
+              <input type="checkbox" id="rememberMe" checked />
+              <span class="checkbox-custom"></span>
+              <span>Keep me signed in</span>
+            </label>
+            <a href="https://www.amarmeter.com/forgot-password" target="_blank" rel="noopener noreferrer"
+              class="forgot-pass-link" id="forgotPasswordLink">Forgot your password?</a>
+          </div>
+
+          <button type="submit" class="btn btn-primary btn-submit">
+            <span>LOGIN TO DASHBOARD</span>
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+              <line x1="5" y1="12" x2="19" y2="12"></line>
+              <polyline points="12 5 19 12 12 19"></polyline>
+            </svg>
+          </button>
+        </form>
+      </div>
+
+      <!-- Sliding Overlay Container -->
+      <div class="overlay-container">
+        <div class="overlay">
+
+          <!-- Overlay Left (Visible when Create Account is active) -->
+          <div class="overlay-panel overlay-left">
+            <h1 class="overlay-title">Welcome Back!</h1>
+            <p class="overlay-desc">
+              Already have an account? Sign in to access your Nexon Power dashboard.
+            </p>
+            <button class="btn btn-ghost" id="signInBtn">
+              <span>LOGIN</span>
+            </button>
+          </div>
+
+          <!-- Overlay Right (Visible when Sign In is active) -->
+          <div class="overlay-panel overlay-right">
+            <h1 class="overlay-title">New to Nexon Power?</h1>
+            <p class="overlay-desc">
+              Register your organization to get started with Nexon Power.
+            </p>
+
+            <button class="btn btn-ghost" id="signUpBtn">
+              <span>CREATE ACCOUNT</span>
+            </button>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- Toast Notification Container -->
+  <div id="toast" class="toast"></div>
+
+  <script src="script.js"></script>
+</body>
+
+</html>
